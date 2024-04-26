@@ -3,7 +3,7 @@
     <a href="index3.html" class="brand-link">
         <img src="{{ asset('assets/template_admin/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
             class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Martaloka Konveksi</span>
+        <span class="brand-text font-weight-light">Sistem Pariwisata</span>
     </a>
 
     <!-- Sidebar -->
@@ -11,27 +11,28 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image pt-3">
-                {{-- <img src="{{ asset('assets/template_admin/dist/img/blank.png') }}"
+                {{-- <img src="{{ asset('storage/public/assets/template_admin/dist/img/blank.png') }}"
                     class="img-circle elevation-2" alt="User Image"> --}}
                 @if (Auth::check())
                     @if (Auth::user()->photo)
-                        <img src="#" class="img-circle elevation-2"
+                        <img src="{{ asset('public/' . Auth::user()->photo) }}" class="img-circle elevation-2"
                             style="border-radius: 50%; object-fit: cover; object-position: center; width: 40px; height: 42px;"
                             alt="User Image">
                     @else
-                        <img src="#" class="img-circle elevation-2" alt="User Image">
+                        <img src="{{ asset('assets/template_admin/dist/img/blank.png') }}"
+                            class="img-circle elevation-2" alt="User Image">
                     @endif
                 @endif
             </div>
             <div class="info">
-                <a href="#" class="d-block">Yan Merta</a>
+                <a href="#" class="d-block">{{ Auth::user()->name }}</a>
                 <div class="float-left">
-                    <a href="#" class="btn-modal-general" data-route="#">
+                    <a href="{{ route('admin.profile.index') }}" class="btn-modal-general" data-route="#">
                         <small><i class="far fa-edit"></i> edit profile</small>
                     </a>
                 </div>
                 <div class="float-right px-2">
-                    <a href="{{ route('logoutProcess') }}">
+                    <a href="{{ route('admin.logoutProcess') }}">
                         <small><i class="fas fa-sign-out-alt"></i> logout</small>
                     </a>
                 </div>
@@ -44,7 +45,7 @@
                 data-accordion="false">
                 <li class="nav-header">INTRO</li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('admin.admin.dashboard') }}" class="nav-link">
                         <i class="nav-icon fas fa fa-th"></i>
                         <p>
                             Dashboard
@@ -156,8 +157,8 @@
                     </ul>
                 </li>
                 <li class="nav-header">MASTER DATA</li>
-                <li class="nav-item {{ request()->routeIs('admin.users') ? 'menu-open active' : '' }}">
-                    <a href="{{ route('admin.users') }}" class="nav-link">
+                <li class="nav-item {{ request()->routeIs('admin.admin.users') ? 'menu-open active' : '' }}">
+                    <a href="{{ route('admin.admin.users') }}" class="nav-link">
                         <i class="nav-icon fas fa-user-alt"></i>
                         <p>
                             Data Admin

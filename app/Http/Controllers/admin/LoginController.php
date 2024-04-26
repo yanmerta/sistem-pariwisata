@@ -45,7 +45,7 @@ class LoginController extends Controller
             // Check if the user is active
             $user = Auth::user();
             if ($user->status == 'active') {
-                return redirect()->route('admin.dashboard')->with('success', 'Yeay, Kamu berhasil Login');
+                return redirect()->route('admin.admin.dashboard')->with('success', 'Yeay, Kamu berhasil Login');
             } else {
                 Auth::logout();
                 return redirect()->route('login')->with('failed', 'Akun Anda tidak aktif. Silakan hubungi administrator.');
