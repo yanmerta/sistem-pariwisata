@@ -2,6 +2,13 @@
 <html lang="en">
 
 <head>
+    <style>
+        body {
+            background: url('{{ asset('assets/template_admin/images/gb.jpg') }}') no-repeat center center fixed;
+            background-size: cover;
+        }
+    </style>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ $title }} | Admin</title>
@@ -33,7 +40,8 @@
         </div>
         <div class="card">
             <div class="card-body login-card-body">
-                <p class="login-box-msg">Sign in to start your session</p>
+                <p class="login-box-msg">Selamat Datang, silahkan login akun Admin anda!
+                </p>
                 <!-- Form -->
                 <form action="{{ route('login.proses') }}" method="post" class="form-send">
                     @method('POST')
